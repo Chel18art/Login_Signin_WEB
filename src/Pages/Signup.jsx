@@ -3,15 +3,19 @@ import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
-    const [isError, setIsError] =useState(false);
+    const [isError, setIsError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+
     const validate = () => {
         setIsError(true);
+        // Assuming successful validation, navigate to the dashboard
+        navigate('/dashboard');
     }
-    
+
   return (
     <>
     <Box sx={{ alignContent: 'center', height: '100vh' }}>
@@ -59,7 +63,7 @@ export default function Signup() {
             <Grid container justifyContent="flex-end">
                 <Grid item>
                     <Box sx={{ p: 1 }}>
-                        <Link href="#" variant="body2">Already have an account? Login</Link>
+                        <Link href="#" variant="body2" onClick={() => navigate('/')}>Already have an account? Login</Link>
                     </Box>
                 </Grid>
             </Grid>

@@ -4,12 +4,17 @@ import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
     const [isError, setIsError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+
     const validate = () => {
         setIsError(true);
+        // Assuming successful validation, navigate to the dashboard
+        navigate('/dashboard');
     }
 
   return (
@@ -42,7 +47,7 @@ export default function LoginPage() {
         </Box>
         <Typography align="center">or</Typography>
         <Box sx={{ p:1 }}>
-                <Button size="large" fullWidth variant="contained" endIcon={<PersonAddAltRoundedIcon />}>Sign Up</Button>
+                <Button size="large" fullWidth variant="contained" endIcon={<PersonAddAltRoundedIcon />} onClick={() => navigate('/signup')}>Sign Up</Button>
         </Box>
       </Container>
     </Box>
